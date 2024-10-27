@@ -1,0 +1,13 @@
+create or replace view EXERCISE_CO2_VS_TEMPERATURE.PSA.STG_TEMPERATURES_BY_COUNTRY(
+	AVERAGETEMPERATURE,
+	AVERAGETEMPERATUREUNCERTAINTY,
+	COUNTRY,
+	DATE
+) as (
+    select 
+        PARSE_JSON(JSON_STRING):"AverageTemperature"::VARCHAR AS AverageTemperature,
+        PARSE_JSON(JSON_STRING):"AverageTemperatureUncertainty"::VARCHAR AS AverageTemperatureUncertainty,
+        PARSE_JSON(JSON_STRING):"Country"::VARCHAR AS Country,
+        PARSE_JSON(JSON_STRING):"Date"::VARCHAR AS Date
+    from EXERCISE_CO2_VS_TEMPERATURE.PSA.TEMPERATURESBYCOUNTRY
+);
