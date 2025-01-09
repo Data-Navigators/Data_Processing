@@ -38,6 +38,7 @@ create or replace stage EXERCISE_CO2_VS_TEMPERATURE.PSA.files_stage;
 copy files
 into @files_stage
 from @git_datasets/branches/automate_sf_setup/new_data;
+-- #TODO the above branch to be updated to main, post the PR is merged
 
 -- create staging tables
 create or replace table EXERCISE_CO2_VS_TEMPERATURE.PSA.EMISSIONBYCOUNTRY(
